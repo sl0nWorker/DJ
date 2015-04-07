@@ -10,6 +10,8 @@
 
 Player::Player(QGraphicsItem *parent):QObject(),QGraphicsPixmapItem(parent)
 {
+    vMove = 0;
+    jof = 1;
     setPixmap(QPixmap(":/images/birdR.png"));
 }
 
@@ -18,28 +20,30 @@ void Player::keyPressEvent(QKeyEvent *event){
 
    if (event->key() == Qt::Key_Right) {
    if (pos().x() + ImgW < 800-20)  // right edge 10px - scroll bar
-            right();
+           changeVmove(0.7);
 
     setPixmap(QPixmap(":/images/birdR.png"));
    }
    else if (event->key() == Qt::Key_Left){
        if (pos().x() > 0)  //  left edge
-            left();
+            changeVmove(-0.7);
      setPixmap(QPixmap(":/images/birdL.png"));
    }
 
 
 }
 
-void Player::jump(){
-    setPos(x(),y()-1);
+
+
+void Player::changeVmove(float v)
+{
+    vMove = v;
 }
-void Player::left(){
-    setPos(x()-1,y());
-}
-void Player::right(){
-    setPos(x()+1,y());
-}
+
 void Player::fall(){
-    setPos(x(),y()+1);
+    jof = 1;
 }
+void Player::jump(){
+    jof = -1;
+}
+

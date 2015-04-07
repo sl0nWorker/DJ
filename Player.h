@@ -11,12 +11,16 @@ class Player: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
 
 public:
+
+    float vMove;
+    int jof; // jump or fall
+
     Player( QGraphicsItem * parent = 0);
     void keyPressEvent(QKeyEvent * event);
 
+
+    void changeVmove(float v);
     void jump();
-    void left();
-    void right();
     void fall();
 
 

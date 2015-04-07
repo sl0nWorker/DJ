@@ -10,6 +10,7 @@ public:
 
     Platforms();
     void change ();
+    void restart();
 
 };
 

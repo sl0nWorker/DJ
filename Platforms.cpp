@@ -48,8 +48,9 @@ Platforms::Platforms(): QObject(), QGraphicsRectItem()
 
    }
 
-    setPos(rndx,rndy);
+
     setRect(0,0,Wpf,Hpf);
+    setPos(rndx,rndy);
 
 }
 
@@ -98,5 +99,11 @@ void Platforms::change()
    }
      setPos(rndx,rndy);
 
+}
+
+void Platforms::restart()
+{
+     QlevelW = 0;
+     QlevelH = 1;
 }
 

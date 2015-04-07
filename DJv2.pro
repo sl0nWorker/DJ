@@ -16,14 +16,16 @@ SOURCES += main.cpp \
     Game.cpp \
     Platforms.cpp \
     Player.cpp \
-    Button.cpp
+    Button.cpp \
+    Score.cpp
 
 HEADERS  += \
     Game.h \
     constants.h \
     Platforms.h \
     Player.h \
-    Button.h
+    Button.h \
+    Score.h
 
 RESOURCES += \
     Resource.qrc

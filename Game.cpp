@@ -1,14 +1,12 @@
 #include "Game.h"
-#include <QTimer>
 #include <QGraphicsTextItem>
 #include <QFont>
 #include "Button.h"
-#include <QTimer>
-
-
-const int Npf = 10;
+#include "constants.h"
+#include <time.h>
 
 Game::Game(QWidget *parent){
+
 
     //create a scene
     scene = new QGraphicsScene();
@@ -18,11 +16,7 @@ Game::Game(QWidget *parent){
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setScene(scene);
 
-    //create the player
-    player = new Player();
-    //create the Score
-   // score = new Score();
-   // startGame();
+
     show();
 }
 
@@ -33,14 +27,14 @@ void Game::displayMainMenu(){
       QFont titleFont("comic sans",50);
       titleText->setFont(titleFont);
       int txPos = this->width()/2 - titleText->boundingRect().width()/2;
-      int tyPos = 150;
+      int tyPos = sceneRect().y()+150;
       titleText->setPos(txPos,tyPos);
       scene->addItem(titleText);
 
       // create the play button
       Button* playButton = new Button(QString("Play"));
       int bxPos = this->width()/2 - playButton->boundingRect().width()/2;
-      int byPos = 275;
+      int byPos = sceneRect().y()+275;
       playButton->setPos(bxPos,byPos);
       connect(playButton,SIGNAL(clicked()),this,SLOT(startGame()));
       scene->addItem(playButton);
@@ -48,40 +42,130 @@ void Game::displayMainMenu(){
       // create the quit button
       Button* quitButton = new Button(QString("Quit"));
       int qxPos = this->width()/2 - quitButton->boundingRect().width()/2;
-      int qyPos = 350;
+      int qyPos = sceneRect().y()+350;
       quitButton->setPos(qxPos,qyPos);
       connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
       scene->addItem(quitButton);
 
 }
 
+void Game::displayGameOverMenu(int s)
+{
+    // create the title text
+      QString is = QString::number(s);
+      QGraphicsTextItem* titleText = new QGraphicsTextItem(QString("Your Score is "+is));
+      QFont titleFont("comic sans",50);
+      titleText->setFont(titleFont);
+      int txPos = this->width()/2 - titleText->boundingRect().width()/2;
+      int tyPos = sceneRect().y()+150;
+      titleText->setPos(txPos,tyPos);
+      scene->addItem(titleText);
+
+      // create the play button
+      Button* playButton = new Button(QString("Play again"));
+      int bxPos = this->width()/2 - playButton->boundingRect().width()/2;
+      int byPos = sceneRect().y()+275;
+      playButton->setPos(bxPos,byPos);
+      connect(playButton,SIGNAL(clicked()),this,SLOT(startGame()));
+      scene->addItem(playButton);
+
+      // create the quit button
+      Button* quitButton = new Button(QString("Quit"));
+      int qxPos = this->width()/2 - quitButton->boundingRect().width()/2;
+      int qyPos = sceneRect().y()+350;
+      quitButton->setPos(qxPos,qyPos);
+      connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
+      scene->addItem(quitButton);
+}
+
 void Game::startGame(){
 
+    srand(time(NULL));
+    scroll = 0;
+     heightJump = 0;
+
+     //create the player
+     player = new Player();
+     //create the Score
+     score = new Score();
+    // startGame();
     scene->clear();
     //add the Score
-    // scene->addItem(score);
+     scene->addItem(score);
     //add item to scene
     scene->addItem(player);
     //make the player focusable
     player->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
     player->setFocus();
     // player pos
-    player->setPos(400,300);
+    player->setPos(sceneRect().x()+400,sceneRect().y()+300);
 
      //создание и добавление платформ
      createPlatforms();
 
-     QTimer* t = new QTimer(this);
+     t = new QTimer(this);
      connect(t, SIGNAL(timeout()), SLOT(update()));
-     t->start(5);
+     t->start(3);
 
 
 }
 
 void Game::update()
 {
-   player->setPos(player->x(),player->y()-1);
+   if (sceneRect().y() > player->pos().y()-100) { // прокрутка сцены
+       scroll = scroll - 5;
+       setSceneRect(0,scroll,800,600);
+       score->increase();
+       score->setPos(sceneRect().x(),sceneRect().y());
+
+   }
+
+
+   if (player->jof == -1)
+        heightJump++;
+
+   if (heightJump == 250) { // высота прыжка
+        heightJump = 0;
+        player->fall();
+   }
+
+  player->setPos(player->x()+player->vMove,player->y()+player->jof); // перемещение игрока
+
+    if (player->pos().x() + ImgW > 800-20 || player->pos().x()<0 )
+        player->vMove = 0;
+
+
+  if (player->jof == 1) { // если игрок падает, то проверяем наличие платформ под ногами, если есть то прыгаем
+       for (int j = 0; j<Npf;j++)
+       {
+           if ( (player->pos().x()+ImgW/2> pf[j]->pos().x()) && (player->pos().x()<pf[j]->pos().x()+Wpf-ImgW/2)&& (player->pos().y() == pf[j]->pos().y()-Hpf)) {
+              player->jump();
+           }
+
+       }
+  }
+// цикл для бесконечно генерации платформ, платформы уходящии за экран заново генерируюца сверху.
+  for (int j = 0; j< Npf ;j++)
+  {
+       if (pf[j]->pos().y()>sceneRect().y()+600)
+       {
+          pf[j]->change();
+       }
+  }
+
+//displayGameOverMenu(int s)
+  if( player->pos().y()> sceneRect().y()+600)
+  {
+     t->stop();
+     pf[0]->restart();
+     scene->clear();
+     QGraphicsView::viewport()->update();
+     displayGameOverMenu(score->getScore());
+  }
+
+
 }
+
 
 void Game::drawPanel(int x, int y, int width, int height, QColor color, double opacity){
     QGraphicsRectItem* panel = new QGraphicsRectItem(x,y,width,height);
