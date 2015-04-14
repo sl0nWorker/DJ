@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include "constants.h"
 #include <time.h>
+#include <QBrush>
 
-Platforms::Platforms(): QObject(), QGraphicsRectItem()
+Platforms::Platforms(): QObject(), QGraphicsPixmapItem()
 {
 
     int rndx;
@@ -47,9 +48,10 @@ Platforms::Platforms(): QObject(), QGraphicsRectItem()
 
 
    }
+  //  setBackgroundBrush(QBrush(QImage(":/images/pbg.png")));
+       setPixmap(QPixmap(":/images/pbg.png"));
+    //setRect(0,0,Wpf,Hpf);
 
-
-    setRect(0,0,Wpf,Hpf);
     setPos(rndx,rndy);
 
 }

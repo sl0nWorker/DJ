@@ -7,7 +7,8 @@
 
 Game::Game(QWidget *parent){
 
-
+    t = new QTimer(this);
+    scroll = 0;
     //create a scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
@@ -15,8 +16,7 @@ Game::Game(QWidget *parent){
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setScene(scene);
-
-
+    scene->setBackgroundBrush(Qt::gray);
     show();
 }
 
@@ -51,6 +51,8 @@ void Game::displayMainMenu(){
 
 void Game::displayGameOverMenu(int s)
 {
+
+
     // create the title text
       QString is = QString::number(s);
       QGraphicsTextItem* titleText = new QGraphicsTextItem(QString("Your Score is "+is));
@@ -80,31 +82,36 @@ void Game::displayGameOverMenu(int s)
 
 void Game::startGame(){
 
+
+   scene->setBackgroundBrush(QBrush(QImage(":/images/bg.png")));
     srand(time(NULL));
-    scroll = 0;
-     heightJump = 0;
+   // scroll = 0;
+    heightJump = 0;
 
      //create the player
      player = new Player();
      //create the Score
      score = new Score();
-    // startGame();
+     score->setPos(sceneRect().x(),sceneRect().y());
+
     scene->clear();
     //add the Score
      scene->addItem(score);
     //add item to scene
     scene->addItem(player);
     //make the player focusable
+
+
     player->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
     player->setFocus();
     // player pos
-    player->setPos(sceneRect().x()+400,sceneRect().y()+300);
+    player->setPos(sceneRect().x()+400,sceneRect().y()+101);
 
      //создание и добавление платформ
      createPlatforms();
 
-     t = new QTimer(this);
-     connect(t, SIGNAL(timeout()), SLOT(update()));
+
+     connect(t, SIGNAL(timeout()),this, SLOT(update()));
      t->start(3);
 
 
@@ -115,6 +122,7 @@ void Game::update()
    if (sceneRect().y() > player->pos().y()-100) { // прокрутка сцены
        scroll = scroll - 5;
        setSceneRect(0,scroll,800,600);
+
        score->increase();
        score->setPos(sceneRect().x(),sceneRect().y());
 
@@ -157,9 +165,12 @@ void Game::update()
   if( player->pos().y()> sceneRect().y()+600)
   {
      t->stop();
+     disconnect(t, SIGNAL(timeout()),this,SLOT(update()));
      pf[0]->restart();
      scene->clear();
+    // scene->setSceneRect(0,0,800,600);
      QGraphicsView::viewport()->update();
+
      displayGameOverMenu(score->getScore());
   }
 

@@ -1,10 +1,10 @@
 #ifndef PLATFORMS_H
 #define PLATFORMS_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 
-class Platforms:public QObject, public QGraphicsRectItem{
+class Platforms:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
 
