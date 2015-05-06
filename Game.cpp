@@ -4,9 +4,19 @@
 #include "Button.h"
 #include "constants.h"
 #include <time.h>
+#include <QTime>
+#include <stdlib.h>
+#include <QDebug>
+
 
 Game::Game(QWidget *parent){
 
+    nowName = "TRUESCORE";
+
+    QString dir = "C:\\Qt\\Qt5.3.2\\Tools\\QtCreator\\bin\\DJv2";
+    settings = new QSettings(dir + "\\options.ini", QSettings::IniFormat);
+
+      srand(time(NULL));
     t = new QTimer(this);
     scroll = 0;
     //create a scene
@@ -18,6 +28,8 @@ Game::Game(QWidget *parent){
     setScene(scene);
     scene->setBackgroundBrush(Qt::gray);
     show();
+   // QTime *timer(20, 4, 23, 3);
+    //time->start();
 }
 
 void Game::displayMainMenu(){
@@ -84,7 +96,7 @@ void Game::startGame(){
 
 
    scene->setBackgroundBrush(QBrush(QImage(":/images/bg.png")));
-    srand(time(NULL));
+
    // scroll = 0;
     heightJump = 0;
 
@@ -113,6 +125,9 @@ void Game::startGame(){
 
      connect(t, SIGNAL(timeout()),this, SLOT(update()));
      t->start(3);
+     //QTime *timer(20, 4, 23, 3);
+     //time->start();
+
 
 
 }
@@ -150,6 +165,7 @@ void Game::update()
               player->jump();
            }
 
+
        }
   }
 // цикл для бесконечно генерации платформ, платформы уходящии за экран заново генерируюца сверху.
@@ -171,7 +187,21 @@ void Game::update()
     // scene->setSceneRect(0,0,800,600);
      QGraphicsView::viewport()->update();
 
-     displayGameOverMenu(score->getScore());
+     int scoredef = score->getScore();
+     int top10score = top10(scoredef,nowName);
+
+     if (top10score==1){
+
+         // Вызов окна для ввода имени для рекорда
+
+
+       // вызов функцию на изменение имени
+         // void TRUESCORE
+
+
+     }
+
+     displayGameOverMenu(scoredef);
   }
 
 
@@ -197,6 +227,50 @@ void Game::createPlatforms(){
          scene->addItem(pf[j]);
     }
 
+}
+
+int Game::top10(int bestScore, QString bestScoreName)
+{
+     int temp = 0, temp2 = 0;
+     QString temp3,temp4;
+     for(int i=1 ;i < 11;i++)
+     {
+     name <<settings->value("player"+QString::number(i)+"name").toString();
+     Lscore <<settings->value("player"+QString::number(i)+"score").toInt();
+
+     }//считали в списки
+
+
+              if (Lscore[0]< bestScore )
+              {
+                 Lscore[0] = bestScore;
+                 name[0] = bestScoreName;
+
+
+                 for(int i=0 ;i<9;i++)
+                 {
+                     if (Lscore[i]>Lscore[i+1])
+                     {
+                         temp = Lscore[i];
+                         temp3 = name[i];
+                         Lscore[i] = Lscore[i+1];
+                         name[i] = name[i+1];
+                         Lscore[i+1] = temp;
+                         name[i+1] = temp3;
+                     }
+
+                 }
+
+                 for(int i=1 ;i<11;i++)
+                 {
+                   settings->setValue("player"+QString::number(i)+"name",name[i-1]);
+                   settings->setValue("player"+QString::number(i)+"score",Lscore[i-1]);
+                 }
+                 settings->sync();
+
+                return 1;
+              }
+     return 0;
 }
 
 

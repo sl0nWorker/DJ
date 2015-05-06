@@ -5,7 +5,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QTimer>
-
+#include <QSettings>
 #include "Player.h"
 #include "Score.h"
 #include "Platforms.h"
@@ -19,8 +19,14 @@ public:
     int heightJump;
     int scroll;
     QTimer * t;
-
+    QTime *timer;
     Game(QWidget * parent=0);
+
+    QSettings *settings;
+    QList<int> Lscore;
+    QStringList name;
+    QString  nowName;
+
 
     QGraphicsScene * scene;
     Player * player;
@@ -32,6 +38,7 @@ public:
     void displayGameOverMenu(int s);
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void createPlatforms();
+    int top10(int bestScore, QString bestScoreName);
 
 public slots:
 
