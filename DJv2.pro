@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     Platforms.cpp \
     Player.cpp \
     Button.cpp \
-    Score.cpp
+    Score.cpp \
+    TextEdit.cpp
 
 HEADERS  += \
     Game.h \
@@ -25,7 +26,8 @@ HEADERS  += \
     Platforms.h \
     Player.h \
     Button.h \
-    Score.h
+    Score.h \
+    TextEdit.h
 
 RESOURCES += \
     Resource.qrc

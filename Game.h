@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "Score.h"
 #include "Platforms.h"
+#include <QLineEdit>
 
 
 class Game: public QGraphicsView{
@@ -18,6 +19,7 @@ public:
 
     int heightJump;
     int scroll;
+    int sdf;
     QTimer * t;
     QTime *timer;
     Game(QWidget * parent=0);
@@ -33,9 +35,13 @@ public:
     Score * score;
     Platforms **pf;
 
+     QLineEdit* line;
 
+    void topName(int bestScore, QString bestScoreName);
     void displayMainMenu();
     void displayGameOverMenu(int s);
+    void displayTextMenu();
+
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void createPlatforms();
     int top10(int bestScore, QString bestScoreName);
@@ -44,6 +50,7 @@ public slots:
 
     void startGame();
     void update();
+    void changeGodName();
 
 
 };

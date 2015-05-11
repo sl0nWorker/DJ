@@ -7,6 +7,7 @@
 #include <QTime>
 #include <stdlib.h>
 #include <QDebug>
+#include <QGraphicsProxyWidget>
 
 
 Game::Game(QWidget *parent){
@@ -26,7 +27,7 @@ Game::Game(QWidget *parent){
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setScene(scene);
-    scene->setBackgroundBrush(Qt::gray);
+    scene->setBackgroundBrush(Qt::white);
     show();
    // QTime *timer(20, 4, 23, 3);
     //time->start();
@@ -61,8 +62,84 @@ void Game::displayMainMenu(){
 
 }
 
+void Game::topName(int bestScore, QString bestScoreName)
+{
+
+     for(int i=1 ;i < 11;i++)
+     {
+     name <<settings->value("player"+QString::number(i)+"name").toString();
+     Lscore <<settings->value("player"+QString::number(i)+"score").toInt();
+
+     }//считали в списки
+
+                 for(int i=0 ;i<9;i++)
+                 {
+                     if (name[i]=="TRUESCORE")
+                     {
+                         qDebug()<<"TRUESCORE";
+                         name[i] = bestScoreName;
+                     }
+
+                 }
+
+                 for(int i=1 ;i<11;i++)
+                 {
+                   settings->setValue("player"+QString::number(i)+"name",name[i-1]);
+                   settings->setValue("player"+QString::number(i)+"score",Lscore[i-1]);
+                 }
+                 settings->sync();
+
+}
+
+void Game::changeGodName()
+{
+    nowName = line->text();
+    displayGameOverMenu(sdf);
+    topName(sdf,nowName);
+    nowName = "TRUESCORE";
+    qDebug()<<nowName;
+    qDebug()<<sdf;
+}
+
+
+
+
+
+void Game::displayTextMenu()
+{
+
+    QGraphicsRectItem *rectEd = new QGraphicsRectItem ();
+    rectEd->setRect(sceneRect().x()+200,sceneRect().y()+100,400,400);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::lightGray);
+    rectEd->setBrush(brush);
+
+    scene->addItem(rectEd);
+        line = new QLineEdit();
+
+        QGraphicsProxyWidget * proxy = scene->addWidget(line);
+         proxy->setPos (sceneRect().x()+300,sceneRect().y()+150);
+
+         Button* playButton = new Button(QString("ADD to TOP10"));
+         int bxPos = this->width()/2 - playButton->boundingRect().width()/2;
+         int byPos = sceneRect().y()+275;
+         playButton->setPos(bxPos,byPos);
+         connect(playButton,SIGNAL(clicked()),this,SLOT(changeGodName()));
+         scene->addItem(playButton);
+
+
+
+
+ }
+
 void Game::displayGameOverMenu(int s)
 {
+
+
+    scene->clear();
+    QGraphicsView::viewport()->update();
+
 
 
     // create the title text
@@ -186,22 +263,26 @@ void Game::update()
      scene->clear();
     // scene->setSceneRect(0,0,800,600);
      QGraphicsView::viewport()->update();
-
      int scoredef = score->getScore();
+     sdf = scoredef;
      int top10score = top10(scoredef,nowName);
 
      if (top10score==1){
 
          // Вызов окна для ввода имени для рекорда
-
-
+            // textEdit + button
+         // slot na click po knopke
+         // changeNowName;
+ //http://www.cyberforum.ru/qt/thread1225211.html
        // вызов функцию на изменение имени
          // void TRUESCORE
+    displayTextMenu();
 
 
      }
-
-     displayGameOverMenu(scoredef);
+     else
+            displayGameOverMenu(sdf);
+     //
   }
 
 
