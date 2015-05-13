@@ -37,6 +37,7 @@ public:
 
      QLineEdit* line;
 
+
     void topName(int bestScore, QString bestScoreName);
     void displayMainMenu();
     void displayGameOverMenu(int s);
@@ -47,7 +48,7 @@ public:
     int top10(int bestScore, QString bestScoreName);
 
 public slots:
-
+    void displayTop10();
     void startGame();
     void update();
     void changeGodName();

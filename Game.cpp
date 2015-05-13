@@ -14,8 +14,8 @@ Game::Game(QWidget *parent){
 
     nowName = "TRUESCORE";
 
-    QString dir = "C:\\Qt\\Qt5.3.2\\Tools\\QtCreator\\bin\\DJv2";
-    settings = new QSettings(dir + "\\options.ini", QSettings::IniFormat);
+
+    settings = new QSettings("options.ini", QSettings::IniFormat);
 
       srand(time(NULL));
     t = new QTimer(this);
@@ -52,10 +52,17 @@ void Game::displayMainMenu(){
       connect(playButton,SIGNAL(clicked()),this,SLOT(startGame()));
       scene->addItem(playButton);
 
+      Button* top10Button = new Button(QString("Show TOP10"));
+      bxPos = this->width()/2 - playButton->boundingRect().width()/2;
+      byPos = sceneRect().y()+350;
+      top10Button->setPos(bxPos,byPos);
+      connect(top10Button,SIGNAL(clicked()),this,SLOT(displayTop10()));
+      scene->addItem(top10Button);
+
       // create the quit button
       Button* quitButton = new Button(QString("Quit"));
       int qxPos = this->width()/2 - quitButton->boundingRect().width()/2;
-      int qyPos = sceneRect().y()+350;
+      int qyPos = sceneRect().y()+425;
       quitButton->setPos(qxPos,qyPos);
       connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
       scene->addItem(quitButton);
@@ -88,6 +95,7 @@ void Game::topName(int bestScore, QString bestScoreName)
                    settings->setValue("player"+QString::number(i)+"score",Lscore[i-1]);
                  }
                  settings->sync();
+
 
 }
 
@@ -131,8 +139,66 @@ void Game::displayTextMenu()
 
 
 
+
+
+
  }
 
+
+void Game::displayTop10()
+{
+    scene->clear();
+
+    QGraphicsRectItem *rectEd = new QGraphicsRectItem ();
+    rectEd->setRect(sceneRect().x()+200,sceneRect().y()+100,400,400);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::lightGray);
+    rectEd->setBrush(brush);
+    scene->addItem(rectEd);
+
+    for(int i=1 ;i < 11;i++)
+    {
+    name <<settings->value("player"+QString::number(i)+"name").toString();
+    Lscore <<settings->value("player"+QString::number(i)+"score").toInt();
+    }
+    QString text;
+    QGraphicsTextItem* top10Text = new QGraphicsTextItem();
+    for (int i = 9; i>=0;i--) {
+       text = text + QString::number(10-i)+" "+ name[i] + " " + QString::number(Lscore[i])+"\n";
+      }
+
+    Button* quitButton = new Button(QString("Quit"));
+    int qxPos = this->width()/2 - quitButton->boundingRect().width()/2;
+    int qyPos = sceneRect().y()+425;
+    quitButton->setPos(qxPos,qyPos);
+    connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
+    scene->addItem(quitButton);
+
+    Button* playButton = new Button(QString("Play"));
+    int bxPos = this->width()/2 - playButton->boundingRect().width()/2;
+    int byPos = sceneRect().y()+360;
+    playButton->setPos(bxPos,byPos);
+    connect(playButton,SIGNAL(clicked()),this,SLOT(startGame()));
+    scene->addItem(playButton);
+
+    QFont titleFont("comic sans",12);
+    top10Text->setFont(titleFont);
+    top10Text->setPlainText(text);
+    //top10Text = top10Text + name[i]+" "+QString::number(Lscore[i])+"\n";
+    //qDebug()<<Lscore[0];
+
+
+    bxPos = this->width()/2-50 ;
+    byPos = sceneRect().y()+150;
+    top10Text->setPos(bxPos,byPos);
+
+
+    scene->addItem(top10Text);
+
+
+
+}
 void Game::displayGameOverMenu(int s)
 {
 
@@ -163,10 +229,18 @@ void Game::displayGameOverMenu(int s)
       // create the quit button
       Button* quitButton = new Button(QString("Quit"));
       int qxPos = this->width()/2 - quitButton->boundingRect().width()/2;
-      int qyPos = sceneRect().y()+350;
+      int qyPos = sceneRect().y()+425;
       quitButton->setPos(qxPos,qyPos);
       connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
       scene->addItem(quitButton);
+
+
+      Button* top10Button = new Button(QString("Show TOP10"));
+      bxPos = this->width()/2 - playButton->boundingRect().width()/2;
+      byPos = sceneRect().y()+350;
+      top10Button->setPos(bxPos,byPos);
+      connect(top10Button,SIGNAL(clicked()),this,SLOT(displayTop10()));
+      scene->addItem(top10Button);
 }
 
 void Game::startGame(){
@@ -223,6 +297,9 @@ void Game::update()
 
    if (player->jof == -1)
         heightJump++;
+// заменить высоту прыжка на время, добавить в класс плауер таймер
+   // отнимать от координаты y ускорение умноженное на квадрат времени
+   // обнулять таймер при касании платформы
 
    if (heightJump == 250) { // высота прыжка
         heightJump = 0;
@@ -351,7 +428,9 @@ int Game::top10(int bestScore, QString bestScoreName)
 
                 return 1;
               }
-     return 0;
+              return 0;
 }
+
+
 
 
