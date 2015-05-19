@@ -1,0 +1,27 @@
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes.dex : \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\kde\necessitas\ministro\IMinistro$Stub$Proxy.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\kde\necessitas\ministro\IMinistro$Stub.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\kde\necessitas\ministro\IMinistro.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\kde\necessitas\ministro\IMinistroCallback$Stub$Proxy.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\kde\necessitas\ministro\IMinistroCallback$Stub.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\kde\necessitas\ministro\IMinistroCallback.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\example\DJv2\BuildConfig.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\example\DJv2\R$array.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\example\DJv2\R$attr.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\example\DJv2\R$drawable.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\example\DJv2\R$layout.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\example\DJv2\R$string.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\example\DJv2\R.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity$1.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity$2.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity$3$1$1.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity$3$1.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity$3.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity$4.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity$5.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity$6.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtActivity.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtApplication$InvokeResult.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes\org\qtproject\qt5\android\bindings\QtApplication.class \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\dexedLibs\QtAndroid-bundled-f5272e0545e6312a3b6156baac96aa8e.jar \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\dexedLibs\QtAndroidAccessibility-bundled-ffef3782b7963bc68232331ba7e1345c.jar \

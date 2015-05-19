@@ -1,0 +1,27 @@
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\QtApp-release-unsigned.apk : \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\QtApp.ap_ \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\bin\classes.dex \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\QtAndroid-bundled.jar \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\QtAndroidAccessibility-bundled.jar \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libDJv2.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libgnustl_shared.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_generic_libqevdevkeyboardplugin.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_generic_libqevdevmouseplugin.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_generic_libqevdevtabletplugin.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_generic_libqevdevtouchplugin.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqdds.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqgif.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqicns.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqico.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqjp2.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqjpeg.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqmng.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqtga.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqtiff.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_imageformats_libqwbmp.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_platforms_android_libqtforandroid.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_platforms_libqminimal.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libplugins_platforms_libqoffscreen.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libQt5Core.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libQt5Gui.so \
+C:\Qt\Qt5.3.2\Tools\QtCreator\bin\build-DJv2-Android_for_armeabi_GCC_4_9_Qt_5_4_0-Release\android-build\libs\armeabi\libQt5Widgets.so \
